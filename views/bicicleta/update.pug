@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+    br
+    h1 Update Bicycle
+    // Contact Section Form
+    .row
+        .col-lg-8.mx-auto
+            // To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.
+            form#contactForm(  action= `/bicicleta/${bici.id}/update` method= 'post' )
+                .control-group
+                    .form-group.floating-label-form-group.controls.mb-0.pb-2
+                        label ID
+                        input#name.form-control(type='num' placeholder='id' name='id' value=bici.id required='required' data-validation-required-message='please enter your bike id')
+                        p.help-block.text-danger
+                .control-group
+                    .form-group.floating-label-form-group.controls.mb-0.pb-2
+                        label Color
+                        input#email.form-control(type='text' placeholder='Color' name='color' value=bici.color required='required' data-validation-required-message='Please enter your  bike color')
+                        p.help-block.text-danger
+                .control-group
+                    .form-group.floating-label-form-group.controls.mb-0.pb-2
+                        label Modelo
+                        input#phone.form-control(type='text' placeholder='Modelo' name='modelo' value=bici.modelo required='required' data-validation-required-message='Please enter your bike model')
+                        p.help-block.text-danger
+                .control-group
+                    .form-group.floating-label-form-group.controls.mb-0.pb-2
+                        label Longitud
+                        input#phone.form-control(type='text' placeholder='Longitud' name='longitud' value=bici.ubicacion[1] required='required' data-validation-required-message='Please enter your bike longitud')
+                        p.help-block.text-danger
+                .control-group
+                    .form-group.floating-label-form-group.controls.mb-0.pb-2
+                        label Latitud
+                        input#phone.form-control(type='text' placeholder='Latitud' name='latitude' value=bici.ubicacion[0] required='required' data-validation-required-message='Please enter your bike latitude')
+                        p.help-block.text-danger
+                br
+                #success
+                    .form-group.floating-label-form-group.controls.mb-0.pb-2
+                        button#sendMessageButton.btn.btn-primary.btn-xl(type='submit') Send
+                        a.btn.btn-danger.py-3.px-4(href='/bicicleta') Cancelar
